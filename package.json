@@ -1,0 +1,43 @@
+{
+  "name": "isc-pc",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "eslint ./src",
+    "pro": "hotpack pro",
+    "proxy": "cp proxy.json dist",
+    "predeploy": "npm run pro && npm run proxy",
+    "deploy": "lap deploy dist -d=isc-internal.lap.360.cn -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@v.src.corp.qihoo.net:chuangxin_fe/isc-pc.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@q/hotpack-buble": "0.2.3",
+    "@q/hotpack-cdn": "1.1.3",
+    "@q/hotpack-compress": "0.2.0",
+    "@q/hotpack-eslint": "0.1.3",
+  
+    "@q/hotpack-polyfill": "0.2.0",
+    "@q/hotpack-postcss": "0.8.0",
+    "@q/hotpack-vue": "1.0.2",
+    "koa": "2.13.1",
+    "koa-send": "5.0.1",
+    "login": "^0.8.0"
+  },
+  "browserslist": [
+    "Android > 4.1",
+    "Chrome >= 28",
+    "ie 9-11"
+  ],
+  "devDependencies": {
+    "eslint": "^7.4.0",
+    "eslint-plugin-vue": "7.5.0"
+  }
+}

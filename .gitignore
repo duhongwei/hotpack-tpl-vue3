@@ -1,0 +1,7 @@
+dev
+dist/__cache__
+dist/_render_
+node_modules
+*.log
+.DS_Store
+.idea
