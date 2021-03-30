@@ -2,11 +2,8 @@
   <div>this is a h5 demo</div>
 </template>
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style>
-
 </style>
