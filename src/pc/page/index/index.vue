@@ -1,12 +1,8 @@
 <template>
-  <div>this is a demo</div>
+  <div class="aa">this is a demo</div>
 </template>
 <script>
-export default {
-
-}
+export default {}
 </script>
-
 <style>
-
 </style>
