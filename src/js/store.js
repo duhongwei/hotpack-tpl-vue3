@@ -6,7 +6,8 @@ Vue.use(Vuex)
 const none = "NONE"
 const _storeInfo = {
     state: {
-        userInfo
+        userInfo: none
+ 
     },
     mutations: {
         increment(state) {
