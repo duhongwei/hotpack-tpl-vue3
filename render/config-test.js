@@ -1,5 +1,5 @@
 export default {
-    port: 80,
+    port: 3000,
     page: {
         single: '/index.html'
     }

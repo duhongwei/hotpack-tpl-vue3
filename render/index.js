@@ -6,7 +6,6 @@ import send from 'koa-send'
 //import proxy from 'koa-proxy';
 import { renderToString } from '@vue/server-renderer'
 
-//执行两次，性能有点差，先用着
 async function replace(str, regex, asyncFn) {
   const promises = [];
   str.replace(regex, (match, ...args) => {
@@ -39,13 +38,11 @@ async function init() {
   let { default: config } = await import(configPath)
 
   let webApp = new Koa()
-  //示例就不加proxy了。
   /* if (config.proxy) {
     webApp.use(proxy(config.proxy));
   }
  */
   webApp.use(async (ctx, next) => {
-    //防止路径攻击
     if (ctx.path.indexOf('..') > -1) {
       ctx.response.type = 'text';
       ctx.response.body = 'invalid path';
@@ -55,7 +52,7 @@ async function init() {
       let path = join(root, ctx.path.substr(1))
       try {
         ctx.fileStats = await fs.stat(path)
-        //如果是目录，跳到默认页面
+ 
         if (ctx.fileStats.isDirectory()) {
           let newUrl = ctx.path
           if (newUrl.endsWith('/')) {
@@ -77,7 +74,7 @@ async function init() {
 
         if (notfound.includes(e.code)) {
           let resolved = false
-          //粗略判断路径是不是有后缀 比如 index.html一般来说，这种不是单页面路径
+          //single page
           if (basename(ctx.path).includes('.')) {
             if (config.page[404]) {
               ctx.path = config.page[404]
@@ -96,10 +93,10 @@ async function init() {
           else {
             ctx.type = 'text';
             ctx.body = `
-              在路径 ${ctx.path} 没有找到相关内容
-              为了避免出现这个错误提示，请在config-xx.js 中加上 配置 server{ page:{404'/404.html'}}
-              如果这个路径是单页路径，请指定单页的html地址 比如  server{ page:{single:'/index.html}}'
-              详情请见 https://github.com/duhongwei/hotpack/blob/master/doc/config.md
+              ${ctx.path} ,file not exist!
+              to avoid error,please add  page:{404'/404.html'} in   .hotpack/base.js
+              if you are using single page add page:{single:'/index.html'}
+              more detail   https://github.com/duhongwei/hotpack/blob/master/doc/config.md
               `
           }
         }
