@@ -1,16 +1,5 @@
+//移动端的页面跳转。如果有服务端支持,效率更高的方式是在服务端跳转
 function isMobile() {
-  var ua = navigator.userAgent;
-  var isAndroid = /Android/i.test(ua);
-  var isBlackBerry = /BlackBerry/i.test(ua);
-  var isWindowPhone = /IEMobile/i.test(ua);
-  var isIOS = /iPhone|iPad|iPod/i.test(ua);
-  return isAndroid || isBlackBerry || isWindowPhone || isIOS;
+  return /Android|Phone|iPad|iPod|Mobile/i.test(navigator.userAgent)
 }
-function fitDevicePage() {
-  let { pathname } = location;
-  if (isMobile()) {
- 
-    window.location.href = `/wap${pathname}`
-  }
-}
-fitDevicePage();
+window.isMobile=isMobile

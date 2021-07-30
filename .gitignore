@@ -1,6 +1,5 @@
-dev
-dist/__cache__
-dist/_render_
+dev/
+dist/
 node_modules
 *.log
 .DS_Store

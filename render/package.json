@@ -1,0 +1,23 @@
+{
+  "name": "a_hotpack_project",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@vue/server-renderer": "3.1.5",
+    "vue": "3.1.5",
+    "vue-router": "^4.0.10",
+    "vuex": "^4.0.2",
+    "koa-send": "^5.0.1",
+    "axios": "^0.21.1",
+    "fs-extra":"^10.0.0",
+    "koa": "2.13.1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

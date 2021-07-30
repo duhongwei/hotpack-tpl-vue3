@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- /pc 是以 src 为根的绝对路径的写法-->
     include(/pc/include/head.html)
     <title>demo</title>
-    include(/pc/include/head.js)
+    <!--../../是以 head.js 为参照的相对路径的写法-->
+    include(../../include/head.js)
   </head>
   <body>
-    <!--ssr-static-begin[[app|app.js]]-->
-   <div id='app'></div>
-   <!--ssr-static-end-->
+   <div id='app' ssr></div>
   </body>
 </html>

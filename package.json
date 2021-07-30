@@ -1,43 +1,38 @@
 {
-  "name": "isc-pc",
+  "name": "hotpack-tpl-vue3",
+  "private": true,
   "type": "module",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "eslint ./src",
-    "pro": "hotpack pro",
-    "proxy": "cp proxy.json dist",
-    "predeploy": "npm run pro && npm run proxy",
-    "deploy": "lap deploy dist -d=isc-internal.lap.360.cn -c"
+    "start": "hotpack",
+    "build": "hotpack pro"
   },
   "repository": {
     "type": "git",
-    "url": "git@v.src.corp.qihoo.net:chuangxin_fe/isc-pc.git"
+    "url": "https://github.com/duhongwei/hotpack-babel"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
-    "@q/hotpack-buble": "0.2.3",
-    "@q/hotpack-cdn": "1.1.3",
-    "@q/hotpack-compress": "0.2.0",
-    "@q/hotpack-eslint": "0.1.3",
-  
-    "@q/hotpack-polyfill": "0.2.0",
-    "@q/hotpack-postcss": "0.8.0",
-    "@q/hotpack-vue": "1.0.2",
-    "koa": "2.13.1",
-    "koa-send": "5.0.1",
-    "login": "^0.8.0"
+    "xss": "^1.0.9"
   },
   "browserslist": [
-    "Android > 4.1",
-    "Chrome >= 28",
-    "ie 9-11"
+    "Chrome >= 49"
   ],
   "devDependencies": {
-    "eslint": "^7.4.0",
-    "eslint-plugin-vue": "7.5.0"
+    "@duhongwei/hotpack-babel": "^0.8.0",
+    "@duhongwei/hotpack-compress": "^0.3.0",
+    "@duhongwei/hotpack-postcss": "^0.14.0",
+    "@duhongwei/hotpack-vue3": "^0.18.0",
+    "@vue/server-renderer": "3.1.5",
+    "eslint": "^7.31.0",
+    "eslint-plugin-vue": "7.5.0",
+    "vue": "3.1.5",
+    "vue-router": "^4.0.10",
+    "vuex": "^4.0.2"
   }
 }
