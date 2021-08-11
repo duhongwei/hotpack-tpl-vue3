@@ -6,13 +6,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "eslint ./src",
-    "start": "hotpack",
-    "build": "hotpack pro"
+    "test": "eslint ./src"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/duhongwei/hotpack-babel"
+    "url": "https://github.com/duhongwei/hotpack-tpl-vue3"
   },
   "keywords": [],
   "author": "",
@@ -28,12 +26,12 @@
     "@duhongwei/hotpack-compress": "^0.3.0",
     "@duhongwei/hotpack-postcss": "^0.14.0",
     "@duhongwei/hotpack-vue3": "^0.18.0",
-    "@vue/server-renderer": "3.1.5",
-    "eslint": "^7.31.0",
-    "eslint-plugin-vue": "7.5.0",
-    "hotpack": "^0.11.0",
-    "vue": "3.1.5",
-    "vue-router": "^4.0.10",
+    "@vue/server-renderer": "3.2.0",
+    "eslint": "^7.32.0",
+    "eslint-plugin-vue": "7.16.0",
+
+    "vue": "3.2.0",
+    "vue-router": "^4.0.11",
     "vuex": "^4.0.2"
   }
 }

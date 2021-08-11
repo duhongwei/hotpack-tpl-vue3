@@ -1,29 +1,43 @@
-# hotpack template of vue3
+# Hotpack example project
+Hotpack + vue3 example
 
+##
+Environmental preparation
+```bash
+npm install -g hotpack
+git clone https://github.com/duhongwei/hotpack-vue3.git
+cd hotpack-vue3
+npm install
+```
 ## dev
+```bash
+cd hotpack-vue3
+hotpack
+```
+Open the browser and enter the URL  `localhost:3000`
+
+you can use other port 
 
 ```bash
-npm install
-npm run start
+hotpack -p 2000
 ```
-localhost:3000
 
 ## production
 
 ```bash
-npm install
-# no server by default.  start server,  npm run build -s
-npm run build
+cd hotpack-vue3
+# no server by default.  start server,  hotpack pro -s
+hotpack pro
 ```
-localhost:3000
+Open the browser and enter the URL  `localhost:3000`
 
 ## server render
 
 ```bash
-npm install
-npm run build
+cd hotpack-vue3
+hotpack pro
 cd dist
 npm install
 node index.js
 ```
-localhost:3000
+Open the browser and enter the URL  `localhost:3000`
