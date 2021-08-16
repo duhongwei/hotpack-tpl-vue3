@@ -7,17 +7,16 @@
 <script>
 export default {
   name:"home",
-  //服务端调用
-  getAsyncData(store) {
+
+  ssr(store) {
     return store.dispatch('home')
   },
   mounted() {
-    if (!this.$store.state.home) {
-      this.$store.dispatch('home')
-    }
+    
   },
   computed: {
     asyncData() {
+
       return this.$store.state.home || {}
     }
   }

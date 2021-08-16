@@ -1,12 +1,17 @@
 import './index.html=>index.html'
-import init from '/pc/js/initSingle.s.js'
+
+import init from '/pc/js/init.s.js'
 import component from './index.vue'
-import getStore from './js/store.js'
-import routes from './js/routes.js'
+import storeInfo from './js/store.js'
+import { Vuex } from 'duhongwei/hotpack-vue3'
 
-
-export default async function (ctx = {}) {
-    let store = getStore()
-
-    return init({ component, routes, store, ctx })
+export default async function () {
+    let store = Vuex.createStore(storeInfo)
+    const state = await store.dispatch('init')
+    let app = await init(component)
+    app.use(store)
+    return {
+        app,
+        state
+    }
 }

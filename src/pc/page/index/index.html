@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <!-- /pc 是以 src 为根的绝对路径的写法-->
+    <!-- /pc, it is written as an absolute path rooted at src-->
     include(/pc/include/head.html)
-    <title>demo</title>
-    <!--../../是以 head.js 为参照的相对路径的写法-->
+    <title>hotpack vue3</title>
+    <!--../../,it is the writing of the relative path based on head.js-->
     include(../../include/head.js)
   </head>
   <body>
-   <div id='app' ssr></div>
+    <!--add pre-ssr , prerender  <div id='app' pre-ssr ></div> -->
+   <div id='app' pre-ssr></div>
   </body>
 </html>

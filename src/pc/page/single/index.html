@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+   <!-- /pc, it is written as an absolute path rooted at src-->
+   include(/pc/include/head.html)
+   <title>{{{title}}}</title>
+   <!--../../,it is the writing of the relative path based on head.js-->
+   include(../../include/head.js)
+  </head>
+  <body>
+   <div id='app' ssr></div>
+  </body>
+</html>

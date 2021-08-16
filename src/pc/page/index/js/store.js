@@ -1,31 +1,29 @@
-import Vuex from 'vuex'
-import { getHome, getAbout } from '/api/page/index.js'
+import { getIndex } from '/api/page/index.js'
+import { getUser } from '/api/page/user.js'
 
-export default function () {
-  return new Vuex.createStore({
-    state: {
-      about: null,
-      home: null
+export default {
+  state: {
+    initData: null,
+    user: null
+  },
+  mutations: {
+    init(state, data) {
+      state.initData = data
     },
-    mutations: {
-      about(state, data) {
-        state.about = data
-      },
-      home(state, data) {
-        state.home = data
-      }
-    },
-    actions: {
-      async about({ commit }) {
-        const aboutData = await getAbout()
-        commit('about', aboutData)
-        return aboutData
-      },
-      async home({ commit }) {
-        const homeData = await getHome()
-        commit('home', homeData)
-        return homeData
-      }
+    user(state, data) {
+      state.user = data
     }
-  })
+  },
+  actions: {
+    async init({ commit }) {
+      const data = await getIndex()
+      commit('init', data)
+      return data
+    },
+    async user({ commit }) {
+      const data = await getUser()
+      commit('user', data)
+      return data
+    }
+  }
 }

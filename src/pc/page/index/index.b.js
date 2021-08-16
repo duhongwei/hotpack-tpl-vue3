@@ -1,9 +1,24 @@
 import './index.html=>index.html'
 import './css/index.css'
-import init from '/pc/js/InitSingle.b.js'
+import Vuex from 'vuex'
+import init from '/pc/js/init.b.js'
 import component from './index.vue'
-import getStore from './js/store.js'
-import routes from './js/routes.js'
+import storeInfo from './js/store.js'
 
-init({ component,store:getStore(),routes })
+const store = Vuex.createStore(storeInfo)
 
+store.dispatch('user')
+
+let app = init(component)
+app.use(store)
+//no state during development, unless you use the'-r' parameter 
+if (window.__state__) {
+  store.initState = window.__state__
+
+}
+else {
+  //Convention, all initialization data will be completed in the init action
+  store.dispatch('init')
+}
+
+app.mount('#app')

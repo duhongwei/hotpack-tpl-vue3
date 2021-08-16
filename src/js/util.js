@@ -15,6 +15,21 @@ function formatNumber(n) {
   if (n < 0) return `0${n}`
   else return `${n}`
 }
+function getUrlParam() {
+  let result = {};
+  let search = window.location.href.split('?')[1]
+  if (!search) return result;
+  search = search.split('#')[0]
+  search = search.split('&');
+  for (let i = 0; i < search.length; i++) {
+    let item = search[i].split('=');
+    result[window.decodeURIComponent(item[0])] = window.decodeURIComponent(
+      item[1]
+    );
+  }
+  return result;
+}
 export {
+  getUrlParam,
   formatTime
 };

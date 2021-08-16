@@ -32,10 +32,8 @@ export default {
       use: 'node',
       opt: {
         alias: {
-          //example: no umd file，Manually specify the files available to the browser and export the global variables
-          xss: {
-            path: 'dist/xss.min.js',
-            export: 'filterXSS'
+          swiper:{
+            css:'swiper-bundle.css'
           }
         }
       }
@@ -54,7 +52,7 @@ export default {
   ],
   server: {
     page: {
-      single: '/index.html'
+      single: '/single.html'
     }
   }
 }

@@ -2,9 +2,10 @@ import Koa from 'koa'
 import { basename, join, resolve } from 'path'
 import fs from 'fs-extra'
 import send from 'koa-send'
+import merge from 'deepmerge'
 //https://github.com/edorivai/koa-proxy
 //import proxy from 'koa-proxy';
-import { renderToString } from '@vue/server-renderer'
+import { ssr } from '@duhongwei/hotpack-vue3'
 
 async function replace(str, regex, asyncFn) {
   const promises = [];
@@ -35,8 +36,9 @@ async function init() {
     configPath = './config-pro.js'
   }
 
+  let { default: configBase } = await import('./config-base.js')
   let { default: config } = await import(configPath)
-
+  config = merge.all([configBase, config])
   let webApp = new Koa()
   /* if (config.proxy) {
     webApp.use(proxy(config.proxy));
@@ -52,7 +54,7 @@ async function init() {
       let path = join(root, ctx.path.substr(1))
       try {
         ctx.fileStats = await fs.stat(path)
- 
+
         if (ctx.fileStats.isDirectory()) {
           let newUrl = ctx.path
           if (newUrl.endsWith('/')) {
@@ -126,26 +128,13 @@ async function init() {
     if (/\.html$/.test(ctx.path)) {
       let path = join(root, ctx.path.substr(1))
       let content = await fs.readFile(path, 'utf8')
+      path = ssrConfig[ctx.path.substr(1)]
+      path = resolve(path)
+      content = await ssr({ content, path, ctx })
 
-      content = await replace(content, /<div\+?.*?ssr.*?><\/div>/, async (holder) => {
-
-        let m = holder.match(/\s+?id=['"]?(.+?)['"]?\s+?/)
-        if (!m) throw 'ssr no id'
-        let id = m[1]
-
-        let controllerPath = ssrConfig[ctx.path.substr(1)]
-
-        let { default: controller } = await import(controllerPath)
-
-        //https://github.com/yahoo/serialize-javascript 可以考虑用它来处理下state
-        const { app, state } = await controller(ctx)
-
-        let s = await renderToString(app)
-        s = `<div id='${id}'>${s}</div>`
-        return `${s}<script>window.__state__=${JSON.stringify(state)};\n//published at: ${new Date().toLocaleString()}</script>`
-      })
       ctx.response.type = 'html';
       ctx.response.body = content;
+
     }
     else {
       await next()

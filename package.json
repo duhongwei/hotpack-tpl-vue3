@@ -16,22 +16,17 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "xss": "^1.0.9"
+    "swiper": "^6.8.1"
   },
   "browserslist": [
-    "Chrome >= 49"
+    "Chrome >= 49"
   ],
   "devDependencies": {
     "@duhongwei/hotpack-babel": "^0.8.0",
     "@duhongwei/hotpack-compress": "^0.3.0",
     "@duhongwei/hotpack-postcss": "^0.14.0",
-    "@duhongwei/hotpack-vue3": "^0.18.0",
-    "@vue/server-renderer": "3.2.0",
+    "@duhongwei/hotpack-vue3": "0.18.2",
     "eslint": "^7.32.0",
-    "eslint-plugin-vue": "7.16.0",
-
-    "vue": "3.2.0",
-    "vue-router": "^4.0.11",
-    "vuex": "^4.0.2"
+    "eslint-plugin-vue": "7.16.0"
   }
 }

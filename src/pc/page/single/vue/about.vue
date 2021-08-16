@@ -8,15 +8,12 @@
 <script>
 export default {
   name:"about",
-  //服务端调用
-  getAsyncData(store) {
+  
+  ssr(store) {
     return store.dispatch('about')
   },
   mounted() {
-    if (!this.$store.state.about) {
     
-      this.$store.dispatch('about')
-    }
   },
   computed: {
     asyncData() {
