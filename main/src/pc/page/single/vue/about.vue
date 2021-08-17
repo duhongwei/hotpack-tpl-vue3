@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <h2>about title</h2>
-    <p>about async text is {{ asyncData.text }}</p>
+    <p>about text is {{ data.text }}</p>
   </div>
 </template>
 
@@ -13,10 +13,10 @@ export default {
     return store.dispatch('about')
   },
   mounted() {
-    
+  
   },
   computed: {
-    asyncData() {
+    data() {
       return this.$store.state.about || {}
     }
   }

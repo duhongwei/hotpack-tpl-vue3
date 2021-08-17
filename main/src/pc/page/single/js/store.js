@@ -1,34 +1,34 @@
 
-import { getHome } from '/api/page/home.js'
+import { getIndex } from '/api/page/index.js'
 import { getAbout } from '/api/page/about.js'
 
 export default {
   state: {
     about: null,
-    home: null
+    index: null
   },
   mutations: {
     about(state, data) {
       state.about = data
     },
-    home(state, data) {
-      state.home = data
+    index(state, data) {
+      state.index = data
     }
   },
   actions: {
-    async about({ commit,state }) {
+    async about({ commit, state }) {
       if (state.about) return state.about
-      
-      const aboutData = await getAbout()
-      commit('about', aboutData)
-      return aboutData
+
+      const data = await getAbout()
+      commit('about', data)
+      return data
     },
-    async home({ commit,state }) {
-      if (state.home) return state.home
-      
-      const homeData = await getHome()
-      commit('home', homeData)
-      return homeData
+    async index({ commit, state }) {
+      if (state.index) return state.index
+
+      const data = await getIndex()
+      commit('index', data)
+      return data
     }
   }
 }

@@ -2,7 +2,7 @@
   <div>
     <h1>Hotpack Vue3 Single Page Egxample</h1>
     <p class="menu">
-    <router-link to="/single">Go to Home</router-link>
+    <router-link to="/single">Go to index</router-link>
     <router-link to="/single/about">Go to About</router-link>
     </p>
     <router-view></router-view>

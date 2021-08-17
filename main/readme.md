@@ -1,5 +1,5 @@
 # Hotpack example project
-Hotpack + vue3 example
+Hotpack vue3 example
 
 ##
 Environmental preparation
@@ -34,10 +34,6 @@ Open the browser and enter the URL  `localhost:3000`
 ## server render
 
 ```bash
-cd hotpack-vue3
-hotpack pro
-cd dist
-npm install
-node index.js
+
 ```
 Open the browser and enter the URL  `localhost:3000`

@@ -9,7 +9,6 @@ import Vuex from 'vuex'
 
 //no state during development, unless you use the'-r' parameter to specify server-side rendering
 if (window.__state__) {
-
   storeInfo.state = window.__state__
 }
 const store = Vuex.createStore(storeInfo)
@@ -38,5 +37,3 @@ app.use(store)
 app.use(router)
 
 app.mount('#app')
-
-

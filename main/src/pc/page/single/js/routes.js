@@ -1,10 +1,11 @@
 
-const routes= [
+const routes = [
   {
     path: '/single',
-    component: () => import('../vue/home.vue'),
+    component: () => import('../vue/index.vue'),
     meta: {
-      title: 'index page'
+      title: 'index page',
+      ssr: (store) => { store.dispath('index') }
     }
   },
   {
