@@ -1,4 +1,5 @@
 import compress from '@duhongwei/hotpack-compress'
+import babel from '@duhongwei/hotpack-babel'
 export default {
   render: {
     //required
@@ -8,7 +9,10 @@ export default {
   },
   dist: './dist',
   plugin: [
-
+    {
+      name: 'babel',
+      use: babel
+    },
     {
       name: 'compress',
       use: compress

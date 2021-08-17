@@ -16,12 +16,16 @@ export default {
     }
   },
   actions: {
-    async about({ commit }) {
+    async about({ commit,state }) {
+      if (state.about) return state.about
+      
       const aboutData = await getAbout()
       commit('about', aboutData)
       return aboutData
     },
-    async home({ commit }) {
+    async home({ commit,state }) {
+      if (state.home) return state.home
+      
       const homeData = await getHome()
       commit('home', homeData)
       return homeData

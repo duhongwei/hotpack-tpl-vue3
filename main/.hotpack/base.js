@@ -1,4 +1,3 @@
-import babel from '@duhongwei/hotpack-babel'
 import vue3 from '@duhongwei/hotpack-vue3'
 import postcss from '@duhongwei/hotpack-postcss'
 export default {
@@ -23,17 +22,14 @@ export default {
         return /^h5/.test(key)
       }
     },
-    {
-      name: 'babel',
-      use: babel
-    },
+   
     {
       name: 'node',
       use: 'node',
       opt: {
         alias: {
-          swiper:{
-            css:'swiper-bundle.css'
+          swiper: {
+            css: 'swiper-bundle.css'
           }
         }
       }
