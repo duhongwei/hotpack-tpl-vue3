@@ -3,6 +3,8 @@ import { basename, join, resolve } from 'path'
 import fs from 'fs-extra'
 import send from 'koa-send'
 import merge from 'deepmerge'
+import { pathToFileURL } from 'url'
+
 //https://github.com/edorivai/koa-proxy
 //import proxy from 'koa-proxy';
 import { ssr } from '@duhongwei/hotpack-vue3'
@@ -130,6 +132,7 @@ async function init() {
       let content = await fs.readFile(path, 'utf8')
       path = ssrConfig[ctx.path.substr(1)]
       path = resolve(path)
+      path = pathToFileURL(path).href
       content = await ssr({ content, path, ctx })
 
       ctx.response.type = 'html';
