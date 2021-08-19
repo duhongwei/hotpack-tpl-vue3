@@ -7,7 +7,7 @@ node >14
 
 ```bash
 npm install -g hotpack
-git clone https://github.com/duhongwei/hotpack-tpl-vue3 my-app
+git clone https://github.com/duhongwei/hotpack-tpl-vue3.git my-app
 cd my-app/main
 npm install
 
