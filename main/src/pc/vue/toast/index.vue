@@ -1,6 +1,6 @@
 <template>
 
-  <div v-if="show" class="v-toast">
+  <div v-if="isShow" class="v-toast">
     {{ msg }}
   </div>
 
@@ -13,15 +13,15 @@ export default {
   data() {
     return {
       msg: '',
-      show: false
+      isShow: false
     }
   },
   methods: {
     show(msg) {
       this.msg = msg
-      this.showToast = true
+      this.isShow = true
       setTimeout(() => {
-        this.showToast = false
+        this.isShow = false
       }, 2000)
     }
   }
