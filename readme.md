@@ -3,7 +3,7 @@ Hotpack vue3 example
 
 ## Environmental preparation
 
-node >14
+node > 14  hotpack >= 12.0
 
 ```bash
 npm install -g hotpack
